@@ -22,7 +22,11 @@ function fezz(i: number) {
     return is_multiple_of(i, 13);
 }
 
-for (let i = 1; i <= 200; i++) {
+function do_reverse(i: number) {
+    return is_multiple_of(i, 17);
+}
+
+for (let i = 1; i <= 357; i++) {
     let result: string[] = [];
 
     if (fizz(i))
@@ -38,6 +42,9 @@ for (let i = 1; i <= 200; i++) {
         result = result.filter((word) => word === "Fezz"); // Bong must appear either on its own or only with Fezz
         result.push("Bong");
     }
+
+    if (do_reverse(i))
+        result.reverse();
 
     if (!result.length)
         result = [i.toString()];
