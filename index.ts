@@ -18,20 +18,29 @@ function bong(i: number) {
     return is_multiple_of(i, 11);
 }
 
-for (let i = 1; i <= 100; i++) {
-    let result = "";
+function fezz(i: number) {
+    return is_multiple_of(i, 13);
+}
+
+for (let i = 1; i <= 200; i++) {
+    let result: string[] = [];
 
     if (fizz(i))
-        result += "Fizz";
+        result.push("Fizz");
+    if (fezz(i))
+        result.push("Fezz");
     if (buzz(i))
-        result += "Buzz";
+        result.push("Buzz");
     if (bang(i))
-        result += "Bang";
-    if (bong(i))
-        result = "Bong"
+        result.push("Bang");
 
-    if (result === "")
-        result = i.toString();
+    if (bong(i)) {
+        result = result.filter((word) => word === "Fezz"); // Bong must appear either on its own or only with Fezz
+        result.push("Bong");
+    }
 
-    console.log(result);
+    if (!result.length)
+        result = [i.toString()];
+
+    console.log(result.join(""));
 }
