@@ -14,6 +14,10 @@ function bang(i: number) {
     return is_multiple_of(i, 7);
 }
 
+function bong(i: number) {
+    return is_multiple_of(i, 11);
+}
+
 for (let i = 1; i <= 100; i++) {
     let result = "";
 
@@ -23,6 +27,8 @@ for (let i = 1; i <= 100; i++) {
         result += "Buzz";
     if (bang(i))
         result += "Bang";
+    if (bong(i))
+        result = "Bong"
 
     if (result === "")
         result = i.toString();
